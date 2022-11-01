@@ -83,10 +83,23 @@ services:
   #     - dex-manage
 
 
-  # dex-node:
+  dex-node:
+    build:
+      context: ./
+      dockerfile: node-server/dockerfile
+    ports:
+      - 80:8989
+    volumes:
+      - ./build:/opt/build
+    networks:
+      - dex-manage
+
+  # local-python:
   #   build:
   #     context: ./
-  #     dockerfile: node-server/dockerfile
+  #     dockerfile: python/Dockerfile
+  #   ports:
+  #     - 9090:9090
   #   environment:
   #     - RABBITMQ_PROTOCOL=amqp
   #     - RABBITMQ_HOSTNAME=172.26.32.161
@@ -97,15 +110,6 @@ services:
   #     - RABBITMQ_FRAMEMAX=0
   #     - RABBITMQ_HOST=/
 
-  #     - PRIPATE_KEY_ONE=b9b05ef6
-  #     - PRIPATE_KEY_TWO=178b5245
-  #     - PRIPATE_KEY_THREE=93d7e4f5
-  #     - PRIPATE_KEY_FOUR=13ac4542
-  #     - PRIPATE_KEY_FIVE=2316e8f2
-  #     - PRIPATE_KEY_SIX=2f8859c8
-  #     - PRIPATE_KEY_SEVEN=cc776bb4
-  #     - PRIPATE_KEY_EIGHT=843550c2
-
   #     - MYSQL_HOST=172.26.32.161
   #     - MYSQL_USER=root
   #     - MYSQL_PORT=3300
@@ -113,47 +117,16 @@ services:
   #     - MYSQL_DATABASE=split_db
   #     - MYSQL_CHARSET=utf8mb4
 
+  #     - GETH_CLIENT=http://172.26.32.161:8545
+
   #     - BSC_INIT_TIMESTEMP=1599183796
-  #   ports:
-  #     - 80:8989
+  #     - BSC_BUSD=0xe9e7cea3dedca5984780bafc599bd69add087d56
+  #     - BSC_USDT=0x55d398326f99059ff775485246999027b3197955
+  #     - TZ=Asia/Shanghai
   #   volumes:
-  #     - ./build:/opt/build
+  #     - ../Api:/home/Api
   #   networks:
   #     - dex-manage
-
-  local-python:
-    build:
-      context: ./
-      dockerfile: python/Dockerfile
-    ports:
-      - 9090:9090
-    environment:
-      - RABBITMQ_PROTOCOL=amqp
-      - RABBITMQ_HOSTNAME=172.26.32.161
-      - RABBITMQ_PORT=5670
-      - RABBITMQ_USERNAME=information
-      - RABBITMQ_PASSWORD=information
-      - RABBITMQ_LOCALE=en_US
-      - RABBITMQ_FRAMEMAX=0
-      - RABBITMQ_HOST=/
-
-      - MYSQL_HOST=172.26.32.161
-      - MYSQL_USER=root
-      - MYSQL_PORT=3300
-      - MYSQL_PASSWORD=231510622abc
-      - MYSQL_DATABASE=split_db
-      - MYSQL_CHARSET=utf8mb4
-
-      - GETH_CLIENT=http://172.26.32.161:8545
-
-      - BSC_INIT_TIMESTEMP=1599183796
-      - BSC_BUSD=0xe9e7cea3dedca5984780bafc599bd69add087d56
-      - BSC_USDT=0x55d398326f99059ff775485246999027b3197955
-      - TZ=Asia/Shanghai
-    volumes:
-      - ../Api:/home/Api
-    networks:
-      - dex-manage
 
 
   # binance-node:
