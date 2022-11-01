@@ -4,6 +4,8 @@ for (( i = 0; i < 60; i=(i+step) )); do
 {
     #获取交易对最新区块高度
     curl http://127.0.0.1:9090/consumer/set_height
+    curl http://127.0.0.1:9090/consumer/set_height
+    curl http://127.0.0.1:9090/consumer/set_height
 
     #消费获取交易对事件
     curl http://127.0.0.1:9090/consumer/set_pairs_by_id
