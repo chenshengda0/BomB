@@ -10,7 +10,7 @@ echo "* * * * * date >> /opt/build/test.md 2>&1" >> ~/init-crontab
 echo "* * * * * /opt/one_consumer.sh >> /opt/build/test.md 2>&1" >> ~/init-crontab
 # echo "* * * * * /opt/three_publish.sh >> /opt/test.md 2>&1" >> ~/init-crontab
 # echo "* * * * * /opt/RestartApi.sh >> /opt/build/test.md 2>&1" >> ~/init-crontab
-echo "* * * * * /opt/RestartCrontab.sh >> /opt/build/test.md 2>&1" >> ~/init-crontab
+echo "*/2 * * * * /opt/RestartCrontab.sh >> /opt/build/test.md 2>&1" >> ~/init-crontab
 crontab ~/init-crontab
 rm -rf ~/init-crontab
 service cron restart
