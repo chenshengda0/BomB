@@ -91,6 +91,8 @@ services:
       - 80:8989
     volumes:
       - ./build:/opt/build
+    extra_hosts:
+      - host.docker.internal:host-gateway
     networks:
       - dex-manage
 
