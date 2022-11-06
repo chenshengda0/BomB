@@ -113,7 +113,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     networks:
-      - dex-quantitative
+      - dex-manage
 
   # local-python:
   #   build:
