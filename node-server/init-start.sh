@@ -17,5 +17,5 @@ service cron restart
 
 #执行screen
 screen -dmS NodeApi
-screen -x -S NodeApi -p 0 -X stuff $'node /opt/build/crontab.js >> /opt/build/crontab.md 2>&1'
+screen -x -S NodeApi -p 0 -X stuff $'/usr/local/bin/node /opt/build/crontab.js >> /opt/build/crontab.md 2>&1'
 screen -x -S NodeApi -p 0 -X stuff $'\n'
