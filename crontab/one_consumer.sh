@@ -83,7 +83,7 @@ for (( i = 0; i < 60; i=(i+step) )); do
     curl http://127.0.0.1:9090/consumer/set_transaction_event
     curl http://127.0.0.1:9090/consumer/set_transaction_event
 
-} &  
+} &
     sleep $step
 
 done
