@@ -83,18 +83,18 @@ services:
   #     - dex-manage
 
 
-  dex-node:
-    build:
-      context: ./
-      dockerfile: node-server/dockerfile
-    ports:
-      - 80:8989
-    volumes:
-      - ./build:/opt/build
-    extra_hosts:
-      - host.docker.internal:host-gateway
-    networks:
-      - dex-manage
+  # dex-node:
+  #   build:
+  #     context: ./
+  #     dockerfile: node-server/dockerfile
+  #   ports:
+  #     - 80:8989
+  #   volumes:
+  #     - ./build:/opt/build
+  #   extra_hosts:
+  #     - host.docker.internal:host-gateway
+  #   networks:
+  #     - dex-manage
 
   dev-haproxy:
     hostname: dex-haproxy
